@@ -1,41 +1,40 @@
 
-import { useState } from 'react';
-import NavHead from './Componenets/NavHead';
-import ProductAdd from './Componenets/ProductAdd';
-import ProductList from './Componenets/ProductList';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ArrDemo from './Day3/ArrDemo';
+import DynamicArray from './Day3/DynamicArray';
+
+import EmployeeData from './Day3/EmployeeData';
+import Header from './Day3/Header';
+
+
+
+
 
 function App() {
-//modify array use UseState()is used in function component
 
-const[productList,setProductList]=useState([{ prdId: " 1", prdName: "Mobile ", prdprice: " 9000" },
-{ prdId: "2 ", prdName: " Led Tv", prdprice: " 78001" }]);
+  var emplist=[
+    {empid:101,name:"xyz",city:"pune",post:"kjg"},
+    {empid:102,name:"Vishal",city:"nagpur",post:"be"},
+    {empid:203,name:"lkgjoik",city:"baner",post:"jkfdgh"}
+  ]
 
-const insertProduct=(obj)=>
-{
-  console.log(obj);
-  const newarr=[...productList,{...obj}];
-  setProductList(newarr);
-}
-
+  var list=[
+    {name:"xyz"},
+    {name:"djfhk"}
+  ]
   return (
-    <div>
-<NavHead/>
-<div class="container-fluid">
-<div class="row justify-content-center">
-  <div class="col-7 ">
-    <div class="my-4 p-3 ">
-      <ProductList arr={productList}></ProductList>
-    </div>
-  </div>
-  <div class="col-5">
-    <ProductAdd addPrdHandler={insertProduct}/>
-  </div>
-</div>
+    <div className="App">
+      <div>
+    
+<h1 class="bg-dark">hello bootstrap</h1>
+     <EmployeeData employees={emplist}></EmployeeData>
+     <hr></hr>
+     <Header></Header>
+     <hr></hr>
+     <ArrDemo></ArrDemo>
 
-</div>
-
-
-
+      </div>
     </div>
   );
 }
